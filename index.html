@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Svg Gradient Animate</title>
+	<style>
+:root{
+	--color-1: #6a11cb;
+	--color-2: #8a2be2;
+	--color-3: #ba55d3;
+	--color-4: #dda0dd;
+}
+.color1 {
+  stop-color: var(--color-1);
+  animation: colors-1 4s linear infinite;
+}
+
+.color2 {
+  stop-color: var(--color-2);
+  animation: colors-2 4s linear infinite;
+}
+
+@keyframes colors-1 {
+	0%{
+		stop-color: var(--color-1);
+	}
+    25% {
+        stop-color: var(--color-2);
+    }
+    50% {
+        stop-color: var(--color-3);
+    }
+	75% {
+        stop-color: var(--color-4);
+    }
+	100% {
+        stop-color: var(--color-1);
+    }
+}
+@keyframes colors-2 {
+    
+    0% {
+        stop-color: var(--color-2);
+    }
+    25% {
+        stop-color: var(--color-3);
+    }
+	50% {
+        stop-color: var(--color-4);
+    }
+	75% {
+        stop-color: var(--color-1);
+    }
+	100%{
+		stop-color: var(--color-2);
+	}
+}
+</style>
+</head>
+<body>
+	<svg width="600" height="200">
+		<defs>
+			<linearGradient id="svgGradient">
+				<stop offset="0%" class="color1" />
+				<stop offset="100%" class="color2" />
+			</linearGradient>
+		</defs>
+		<rect width="600" height="200" fill="url(#svgGradient)" class="animated-rect" />
+	</svg>
+</body>
+</html>
